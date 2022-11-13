@@ -1,4 +1,4 @@
-package com.warriors.microservicios.controller.productos;
+package com.warriors.microservicios.controller;
 
 import com.warriors.microservicios.entities.Categoria;
 import com.warriors.microservicios.entities.Producto;
