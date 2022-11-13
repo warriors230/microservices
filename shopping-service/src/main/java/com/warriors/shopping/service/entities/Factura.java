@@ -16,7 +16,6 @@ import java.util.List;
 @Entity
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Table(name = "tb_factura")
 public class Factura implements Serializable {
