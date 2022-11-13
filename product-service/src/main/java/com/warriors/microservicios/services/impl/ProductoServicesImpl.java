@@ -1,9 +1,9 @@
-package com.warriors.microservicios.services.productos.impl;
+package com.warriors.microservicios.services.impl;
 
 import com.warriors.microservicios.entities.Categoria;
 import com.warriors.microservicios.entities.Producto;
 import com.warriors.microservicios.repository.productos.IProductosRepository;
-import com.warriors.microservicios.services.productos.IProductoService;
+import com.warriors.microservicios.services.IProductoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

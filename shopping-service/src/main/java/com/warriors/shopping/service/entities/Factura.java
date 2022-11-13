@@ -31,7 +31,7 @@ public class Factura implements Serializable {
     private String numeroFactura;
     private String descripcion;
     @Column(name = "customer_id")
-    private Integer customerID;
+    private Integer customerId;
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;

@@ -24,4 +24,15 @@ public class FacturaItems implements Serializable {
 
     @Column(name = "producto_id")
     private Long idProducto;
+
+    @Transient
+    private Double subTotal;
+
+    public Double getSubTotal(){
+        if(this.precio>0 && this.cantidad>0){
+            return this.precio * this.cantidad;
+        }else {
+            return  0D;
+        }
+    }
 }

@@ -3,7 +3,7 @@ package com.warriors.microservicios.controller;
 import com.warriors.microservicios.entities.Categoria;
 import com.warriors.microservicios.entities.Producto;
 import com.warriors.microservicios.repository.categorias.ICategoriaRepository;
-import com.warriors.microservicios.services.productos.IProductoService;
+import com.warriors.microservicios.services.IProductoService;
 import com.warriors.microservicios.utils.ErrorMessageFormater;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.List;
