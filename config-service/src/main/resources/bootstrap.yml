@@ -7,5 +7,8 @@ spring:
       server:
         git:
           uri: https://github.com/warriors230/microservices.git
+          searchPaths: config-data
+          username: ${GIT_USER}
+          password: ${GIT_PASS}
 
 
