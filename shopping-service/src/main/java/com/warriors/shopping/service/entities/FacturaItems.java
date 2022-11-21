@@ -1,5 +1,6 @@
 package com.warriors.shopping.service.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,15 +14,17 @@ import java.io.Serializable;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "tb_itemsFactura")
 public class FacturaItems implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_item")
+    @JsonProperty("id_item")
     private Long idItem;
     @Positive(message = "La cantidad debe de ser mayor que cero")
     private Double cantidad;
     private Double precio;
-
+    @JsonProperty("producto_id")
     @Column(name = "producto_id")
     private Long idProducto;
 

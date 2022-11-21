@@ -42,6 +42,7 @@ public class FacturaService implements IFacturaService {
     @Transactional
     @Override
     public Factura crearFactura(Factura factura) {
+        factura.setEstado("CREATE");
         return facturaRepository.save(factura);
     }
 
