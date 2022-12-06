@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ResourceBundleManager">
+    <file url="file://$PROJECT_DIR$/product-service/src/main/resources/test_en.properties" />
+    <file url="file://$PROJECT_DIR$/product-service/src/main/resources/test_es.properties" />
+    <file url="file://$PROJECT_DIR$/product-service/src/main/resources/test_pt.properties" />
+    <file url="file://$PROJECT_DIR$/product-service/src/main/resources/test_us.properties" />
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/product-service/src/main/resources/test_pt.properties" />
+      <file value="file://$PROJECT_DIR$/product-service/src/main/resources/test_us.properties" />
+      <base-name>test</base-name>
+    </custom-resource-bundle>
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/product-service/src/main/resources/test_es.properties" />
+      <file value="file://$PROJECT_DIR$/product-service/src/main/resources/test_pt.properties" />
+      <file value="file://$PROJECT_DIR$/product-service/src/main/resources/test_us.properties" />
+      <base-name>test</base-name>
+    </custom-resource-bundle>
+  </component>
+</project>
