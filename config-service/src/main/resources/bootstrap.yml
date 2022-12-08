@@ -8,8 +8,8 @@ spring:
         git:
           uri: https://github.com/warriors230/microservices.git
           searchPaths: config-data
-          username: ${GIT_USER}
-          password: ${GIT_PASS}
+          username: baironduvan1998@hotmail.com
+          password: Duvan1143874880
 security:
   user:
     name: root
