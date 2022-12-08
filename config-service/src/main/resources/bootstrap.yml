@@ -8,6 +8,7 @@ spring:
         bootstrap: true
         git:
           uri: https://github.com/warriors230/microservices.git
+          clone-on-start: true
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASS}
