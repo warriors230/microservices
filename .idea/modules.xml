@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/customer-service/customer-ms.iml" filepath="$PROJECT_DIR$/customer-service/customer-ms.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/microservices.iml" filepath="$PROJECT_DIR$/.idea/microservices.iml" />
       <module fileurl="file://$PROJECT_DIR$/product-service/microservicios.iml" filepath="$PROJECT_DIR$/product-service/microservicios.iml" />
-      <module fileurl="file://$PROJECT_DIR$/shopping-service/shopping-service.iml" filepath="$PROJECT_DIR$/shopping-service/shopping-service.iml" />
     </modules>
   </component>
 </project>
