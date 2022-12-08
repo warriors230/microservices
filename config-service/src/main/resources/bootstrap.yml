@@ -10,5 +10,9 @@ spring:
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASS}
+security:
+  user:
+    name: root
+    password: s3cr3t
 
 
