@@ -6,13 +6,12 @@ spring:
     config:
       server:
         git:
-          import: https://github.com/warriors230/microservices.git
+          uri: https://github.com/warriors230/microservices.git
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASS}
-security:
-  user:
-    name: root
-    password: s3cr3t
-
-
+          default-label: "main"
+  security:
+    user:
+      name: root
+      password: s3cr3t  
