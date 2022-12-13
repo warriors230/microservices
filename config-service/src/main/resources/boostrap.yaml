@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/warriors230/microservices.git
+          searchPaths: config-data
+          username: baironduvan1998@hotmail.com
+          password: Duvan1143874880
+security:
+  user:
+    name: root
+    password: s3cr3t
