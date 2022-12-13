@@ -10,3 +10,5 @@ spring:
           uri: https://github.com/warriors230/microservices.git
           clone-on-start: true
           search-paths: config-data
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
