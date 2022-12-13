@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/warriors230/microservices.git
+          clone-on-start: true
+          search-paths: config-data

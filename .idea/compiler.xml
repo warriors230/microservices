@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="customer-ms" />
         <module name="config-service" />
+        <module name="shopping-service" />
         <module name="microservicios" />
       </profile>
     </annotationProcessing>
