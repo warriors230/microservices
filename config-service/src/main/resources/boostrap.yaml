@@ -10,6 +10,13 @@ spring:
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
+          clone-on-start: true
+        bootstrap: true
+      enabled: true
+
+  application:
+    name: Config-Server
+    
 security:
   user:
     name: root
