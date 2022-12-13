@@ -6,6 +6,7 @@ spring:
     config:
       server:
         git:
+          default-label: config-service
           uri: https://github.com/warriors230/microservices
           searchPaths: config-data
           username: ${GIT_USER}
