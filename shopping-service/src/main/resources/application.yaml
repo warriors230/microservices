@@ -2,6 +2,4 @@ spring:
   application:
     name: product-service
   config:
-    import:  configserver:http://root:s3cr3t@localhost:8081
-server:
-  port: 8094
+    import: configserver:http://root:s3cr3t@localhost:8081
