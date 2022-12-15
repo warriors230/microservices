@@ -1,5 +1,7 @@
 package com.warriors.shopping.service.services.impl;
 
+import com.warriors.shopping.service.client.CustomerClient;
+import com.warriors.shopping.service.client.ProductClient;
 import com.warriors.shopping.service.entities.Factura;
 import com.warriors.shopping.service.repository.IFacturaRepository;
 import com.warriors.shopping.service.repository.IItemFacturaRepository;
@@ -21,6 +23,12 @@ public class FacturaService implements IFacturaService {
     @Autowired
     IItemFacturaRepository itemFacturaRepository;
 
+    @Autowired
+    CustomerClient customerClient;
+
+    @Autowired
+    ProductClient productClient;
+
     @Transactional(readOnly = true)
     @Override
     public List<Factura> findAll() {
@@ -30,7 +38,11 @@ public class FacturaService implements IFacturaService {
     @Transactional(readOnly = true)
     @Override
     public Factura findById(Long id) {
-        return facturaRepository.findById(id).orElse(null);
+        Factura facturaDB =  facturaRepository.findById(id).orElse(null);
+        if(facturaDB != null){
+            facturaDB.setCustomers(customerClient.findById(facturaDB.getCustomerId()).getBody());
+        }
+        return facturaDB;
     }
 
     @Transactional(readOnly = true)
@@ -43,7 +55,10 @@ public class FacturaService implements IFacturaService {
     @Override
     public Factura crearFactura(Factura factura) {
         factura.setEstado("CREATE");
-        return facturaRepository.save(factura);
+        Factura facturaDB = facturaRepository.save(factura);
+        facturaDB.getItems().forEach(facturaItems -> productClient.actualizarStock(facturaItems.getIdProducto(),
+                facturaItems.getCantidad() * -1));
+        return facturaDB;
     }
 
     @Transactional

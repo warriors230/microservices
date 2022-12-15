@@ -32,7 +32,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<Customers> save( @RequestBody Customers customers) throws RuntimeException {
+    public ResponseEntity<Customers> save(@RequestBody Customers customers) throws RuntimeException {
         try {
             Customers customersNew = customerService.save(customers);
             return ResponseEntity.status(HttpStatus.CREATED).body(customersNew);
@@ -68,6 +68,16 @@ public class CustomerController {
         } catch (RuntimeException ex) {
             ex.printStackTrace();
             throw new RuntimeException("Error al Eliminar el Registro " + ex.getMessage());
+        }
+    }
+
+    @GetMapping("/buscar/{id}")
+    public ResponseEntity<Customers> findById(@PathVariable(name = "id") Long id) throws RuntimeException {
+        Customers customersDB = customerService.findById(id);
+        if (customersDB != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(customersDB);
+        } else {
+            return ResponseEntity.noContent().build();
         }
     }
 }

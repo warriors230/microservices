@@ -2,6 +2,7 @@ package com.warriors.shopping.service.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.warriors.shopping.service.models.Customers;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,7 +37,7 @@ public class Factura implements Serializable {
     private String descripcion;
     @JsonProperty("customer_id")
     @Column(name = "customer_id")
-    private Integer customerId;
+    private Long customerId;
     @Temporal(TemporalType.DATE)
     @JsonProperty("fecha_creacion")
     @Column(name = "fecha_creacion")
@@ -46,6 +47,8 @@ public class Factura implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<FacturaItems> items;
     private String estado;
+    @Transient
+    private Customers customers;
 
     @PrePersist
     public void prePersist() {

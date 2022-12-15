@@ -31,10 +31,11 @@ public class ProductoController {
     IProductoService productoService;
     @Autowired
     ICategoriaRepository categoriaRepository;
-    ErrorMessageFormater errorMessageFormater =  new ErrorMessageFormater();
+    ErrorMessageFormater errorMessageFormater = new ErrorMessageFormater();
 
     @GetMapping(value = "/listar")
-    public ResponseEntity<List<Producto>> listarTodos(@RequestParam(name = "categoriaId", required = false) Long categoriaId) {
+    public ResponseEntity<List<Producto>> listarTodos(@RequestParam(name = "categoriaId", required = false) Long categoriaId)
+            throws RuntimeException {
 
         List<Producto> productos;
 
@@ -58,7 +59,8 @@ public class ProductoController {
     }
 
     @GetMapping("/buscar/{id}")
-    public ResponseEntity<Producto> traerProducto(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Producto> traerProducto(@PathVariable(value = "id") Long id)
+            throws RuntimeException {
 
         Producto productoBD = productoService.traerProducto(id);
 
@@ -70,10 +72,11 @@ public class ProductoController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<Producto> crearProducto(@Valid @RequestBody Producto producto, BindingResult result) throws RuntimeException {
+    public ResponseEntity<Producto> crearProducto(@Valid @RequestBody Producto producto, BindingResult result)
+            throws RuntimeException {
         try {
-            if(result.hasErrors()){
-            throw new RuntimeException(errorMessageFormater.formatMessage(result));
+            if (result.hasErrors()) {
+                throw new RuntimeException(errorMessageFormater.formatMessage(result));
             }
             productoService.crearProducto(producto);
             return ResponseEntity.status(HttpStatus.CREATED).body(producto);
@@ -84,30 +87,34 @@ public class ProductoController {
     }
 
     @PutMapping("/actualizar/{id}")
-    public ResponseEntity<?> actualizar(@PathVariable(value = "id") Long id, @RequestBody Producto producto) {
+    public ResponseEntity<Producto> actualizar(@PathVariable(value = "id") Long id, @RequestBody Producto producto)
+            throws RuntimeException {
         producto.setIdProducto(id);
         Producto productoBD = productoService.actualizarProducto(producto);
         if (productoBD == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El producto no existe!");
+            return ResponseEntity.noContent().build();
         }
         return ResponseEntity.status(HttpStatus.OK).body(productoBD);
     }
 
     @DeleteMapping(value = "/eliminar/{id}")
-    public ResponseEntity<?> eliminarProducto(@PathVariable(name = "id") Long id) {
+    public ResponseEntity<Producto> eliminarProducto(@PathVariable(name = "id") Long id)
+            throws RuntimeException {
         Producto productoBD = productoService.traerProducto(id);
         if (productoBD == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El producto no existe!");
+            return ResponseEntity.noContent().build();
         }
         productoBD = productoService.eliminarProducto(id);
         return ResponseEntity.ok().body(productoBD);
     }
 
     @GetMapping("/actualizarStock/{id}")
-    public ResponseEntity<?> actualizarStock(@PathVariable(value = "id") Long id, @RequestParam(name = "quantity", required = false) Double quantity) {
+    public ResponseEntity<Producto> actualizarStock(@PathVariable(value = "id") Long id,
+                                                    @RequestParam(name = "quantity", required = false) Double quantity)
+            throws RuntimeException {
         Producto productoBD = productoService.actualizarStock(id, quantity);
         if (productoBD == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El producto no existe!");
+            return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok().body(productoBD);
     }
