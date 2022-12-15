@@ -2,12 +2,14 @@ package com.warriors.microservicios;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-public class Microservice1Application {
+@EnableEurekaClient
+public class ProductServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Microservice1Application.class, args);
+		SpringApplication.run(ProductServiceApplication.class, args);
 	}
 
 }
