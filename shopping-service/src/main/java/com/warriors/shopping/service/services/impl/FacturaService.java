@@ -3,6 +3,8 @@ package com.warriors.shopping.service.services.impl;
 import com.warriors.shopping.service.client.CustomerClient;
 import com.warriors.shopping.service.client.ProductClient;
 import com.warriors.shopping.service.entities.Factura;
+import com.warriors.shopping.service.entities.FacturaItems;
+import com.warriors.shopping.service.models.Producto;
 import com.warriors.shopping.service.repository.IFacturaRepository;
 import com.warriors.shopping.service.repository.IItemFacturaRepository;
 import com.warriors.shopping.service.services.IFacturaService;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -38,10 +41,16 @@ public class FacturaService implements IFacturaService {
     @Transactional(readOnly = true)
     @Override
     public Factura findById(Long id) {
-        Factura facturaDB =  facturaRepository.findById(id).orElse(null);
-        if(facturaDB != null){
+        Factura facturaDB = facturaRepository.findById(id).orElse(null);
+        if (facturaDB != null) {
             facturaDB.setCustomers(customerClient.findById(facturaDB.getCustomerId()).getBody());
         }
+        List<FacturaItems> listaItems = facturaDB.getItems().stream().map(facturaItems -> {
+            Producto producto = productClient.traerProducto(facturaItems.getIdProducto()).getBody();
+            facturaItems.setProducto(producto);
+            return facturaItems;
+        }).collect(Collectors.toList());
+        facturaDB.setItems(listaItems);
         return facturaDB;
     }
 
