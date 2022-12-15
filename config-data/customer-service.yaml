@@ -13,11 +13,12 @@ spring:
   h2:
     console:
       enabled: true
+
 server:
+  port: 8092
   error:
     include-message: always
     include-binding-errors: always
-
 
 
 
