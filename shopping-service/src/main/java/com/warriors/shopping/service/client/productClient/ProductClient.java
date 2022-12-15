@@ -1,4 +1,4 @@
-package com.warriors.shopping.service.client;
+package com.warriors.shopping.service.client.productClient;
 
 import com.warriors.shopping.service.models.Producto;
 import org.springframework.cloud.openfeign.FeignClient;

@@ -1,7 +1,7 @@
 package com.warriors.shopping.service.services.impl;
 
-import com.warriors.shopping.service.client.CustomerClient;
-import com.warriors.shopping.service.client.ProductClient;
+import com.warriors.shopping.service.client.customersClient.CustomerClient;
+import com.warriors.shopping.service.client.productClient.ProductClient;
 import com.warriors.shopping.service.entities.Factura;
 import com.warriors.shopping.service.entities.FacturaItems;
 import com.warriors.shopping.service.models.Producto;
