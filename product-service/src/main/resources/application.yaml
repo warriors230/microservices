@@ -1,24 +1,6 @@
 spring:
-  datasource:
-    url: jdbc:h2:mem:productoBD
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: sa
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-  h2:
-    console:
-      enabled: true
-server:
-  error:
-    include-message: always
-    include-binding-errors: always
-
-
-
-
+  application:
+    name: product-service
+  config:
+    import: configserver:http://root:s3cr3t@localhost:8081
 
