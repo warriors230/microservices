@@ -67,6 +67,9 @@ public class FacturaService implements IFacturaService {
         Factura facturaDB = facturaRepository.save(factura);
         facturaDB.getItems().forEach(facturaItems -> productClient.actualizarStock(facturaItems.getIdProducto(),
                 facturaItems.getCantidad() * -1));
+        facturaDB.getItems().forEach(facturaItems -> facturaItems.setProducto(productClient.traerProducto(facturaItems.getIdProducto()).getBody()));
+
+        facturaDB.setCustomers(customerClient.findById(facturaDB.getCustomerId()).getBody());
         return facturaDB;
     }
 
