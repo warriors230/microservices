@@ -39,4 +39,3 @@ management:
       exposure:
         include: "*"
 
-dashboard:
