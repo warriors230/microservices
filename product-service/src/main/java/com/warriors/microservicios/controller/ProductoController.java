@@ -24,7 +24,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/productos")
+@RequestMapping("/api/productos")
 @Slf4j
 public class ProductoController {
     @Autowired

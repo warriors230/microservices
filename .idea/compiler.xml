@@ -12,12 +12,14 @@
         <module name="microservicios" />
         <module name="customer-service" />
         <module name="registry-service" />
+        <module name="gateway-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="config-service" target="11" />
       <module name="customer-ms" target="11" />
       <module name="customer-service" target="11" />
+      <module name="gateway-service" target="11" />
       <module name="microservicios" target="11" />
       <module name="registry-service" target="11" />
       <module name="shopping-service" target="11" />
@@ -28,6 +30,7 @@
       <module name="config-service" options="-parameters" />
       <module name="customer-ms" options="-parameters" />
       <module name="customer-service" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
       <module name="microservicios" options="-parameters" />
       <module name="registry-service" options="-parameters" />
       <module name="shopping-service" options="-parameters" />
